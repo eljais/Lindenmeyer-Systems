@@ -9,9 +9,9 @@ while true
     
     
     %% error message for when you try to run some of the functions without loading system.
-    if sId == -1 && (choice == 3)
+    if sId == -1 && (choice == 2)
         disp('Please choose a type of Lindenmeyer system first: ');
-        roadblock= imread('roadblock.jpg');
+        roadblock= imread('gandalf.jpg');
         image(roadblock);
     else
              
@@ -26,11 +26,15 @@ while true
                 
                 %Sub system menu
                 if sId == 1
+                    System = 'koch'
                     disp('You have chosen the Koch curve!')
-                    iterations = input('Please enter amount of iterations: ')
+                    N = input('Please enter amount of iterations: ')
+                    LindenMayerString=LindIter(System,N)
                 elseif sId == 2
+                    System = 'sierpinski'
                     disp('You have chosen the Sierpinski triangle!')
-                    iterations = input('Please enter amount of iterations: ')
+                    N = input('Please enter amount of iterations: ')
+                    LindenMayerString=LindIter(System,N)
                 end
                
                 if sId == -1
