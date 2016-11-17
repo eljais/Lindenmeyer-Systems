@@ -2,7 +2,7 @@
 %File Id
 sId = -1;
 FiltId = 0;
-system = 'Vælg system';
+system = 'Choose your system';
 while true
     %menu
     choice = menu('Please choose an option:','Type of system', 'Generate plots', 'Quit');
