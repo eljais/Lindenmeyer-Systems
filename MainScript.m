@@ -60,8 +60,14 @@ while true
                 turtleCommands = turtleGraph(LindenmayerString, System ,N);
                 
             case 2
+                if strcmp(System,'koch')
+                    Kris = 'Koch curve';
+                elseif strcmp(System,'sierpinski')
+                    Kris = 'Sierpinski triangle';
+                end
                 %% Generate plots
                 turtlePlot(turtleCommands);
+                title(['Plot of ', Kris, ' with iterations = ', num2str(N)]);
                 
             case 3
                 
