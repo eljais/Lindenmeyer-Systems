@@ -26,25 +26,37 @@ while true
                 
                 %Sub system menu
                 if sId == 1
-                    System = 'koch'
+                    System = 'koch';
                     disp('You have chosen the Koch curve!')
-                    N = input('Please enter amount of iterations: ')
-                    LindenMayerString=LindIter(System,N)
+                    N = input('Please enter amount of iterations: ','s');
+                    N = str2double(N);
+                    N = round(N);
+                    while N < 0 || N >= 15 || isnan(N)    
+                    disp('Please choose an integer between 0 and 15!');
+                    N = input('Please enter amount of iterations: ','s');
+                    end
+                    LindenmayerString=LindIter(System,N);
                 elseif sId == 2
                     System = 'sierpinski'
-                    disp('You have chosen the Sierpinski triangle!')
-                    N = input('Please enter amount of iterations: ')
-                    LindenMayerString=LindIter(System,N)
+                    disp('You have chosen the Sierpinski triangle!');
+                    N = input('Please enter amount of iterations: ');
+                    while N < 0 || N >= 15
+                        disp('Please choose an integer between 0 and 15!');
+                        N = input('Please enter amount of iterations: ');
+                    end
+                    LindenmayerString=LindIter(System,N);
+                    
                 end
                
                 if sId == -1
                     disp('404 file not found');
                     
                 end
+                turtleCommands = turtleGraph(LindenmayerString, System ,N);
                 
             case 2
                 %% Generate plots
-                turtlePlot(turtleCommannds);
+                turtlePlot(turtleCommands);
                 
             case 3
                 
@@ -56,3 +68,4 @@ while true
     
 end
 disp('Success!')
+clear
