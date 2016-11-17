@@ -32,8 +32,7 @@ while true
                     N = str2double(N);
                     N = round(N);
                     while N < 0 || N >= 15 || isnan(N)    
-                    disp('Please choose an integer between 0 and 15!');
-                    N = inputdlg('Please enter amount of iterations: ','s');
+                    N = inputdlg('Please choose an integer between 0 and 15: ','s');
                     N = str2double(N);
                     N = round(N);
                     end
@@ -46,7 +45,7 @@ while true
                     N = round(N);
                     while N < 0 || N >= 15 || isnan(N)
                         disp('Please choose an integer between 0 and 15!');
-                        N = inputdlg('Please enter amount of iterations: ','s');
+                        N = inputdlg('Please choose an integer between 0 and 15: ','s');
                         N = str2double(N);
                         N = round(N);
                     end
