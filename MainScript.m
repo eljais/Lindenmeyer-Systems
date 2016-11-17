@@ -28,21 +28,27 @@ while true
                 if sId == 1
                     System = 'koch';
                     disp('You have chosen the Koch curve!')
-                    N = input('Please enter amount of iterations: ','s');
+                    N = inputdlg('Please enter amount of iterations: ','s');
                     N = str2double(N);
                     N = round(N);
                     while N < 0 || N >= 15 || isnan(N)    
                     disp('Please choose an integer between 0 and 15!');
-                    N = input('Please enter amount of iterations: ','s');
+                    N = inputdlg('Please enter amount of iterations: ','s');
+                    N = str2double(N);
+                    N = round(N);
                     end
                     LindenmayerString=LindIter(System,N);
                 elseif sId == 2
                     System = 'sierpinski'
                     disp('You have chosen the Sierpinski triangle!');
-                    N = input('Please enter amount of iterations: ');
-                    while N < 0 || N >= 15
+                    N = inputdlg('Please enter amount of iterations: ','s');
+                    N = str2double(N);
+                    N = round(N);
+                    while N < 0 || N >= 15 || isnan(N)
                         disp('Please choose an integer between 0 and 15!');
-                        N = input('Please enter amount of iterations: ');
+                        N = inputdlg('Please enter amount of iterations: ','s');
+                        N = str2double(N);
+                        N = round(N);
                     end
                     LindenmayerString=LindIter(System,N);
                     
