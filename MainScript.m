@@ -57,7 +57,7 @@ while true
                     disp('404 file not found');
                     
                 end
-                turtleCommands = turtleGraph(LindenmayerString, System ,N);
+                turtleCommands = turtleGraph(LindenmayerString,N);
                 
             case 2
                 if strcmp(System,'koch')
