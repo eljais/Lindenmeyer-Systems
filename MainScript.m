@@ -31,12 +31,22 @@ while true
                 sId = menu(system,'Koch curve', 'Sierpinski triangle');
                 
                 %Sub system menu
+                %We make an if statement to check for the value entered
+                %into sId. If the first one is chosen, that is the koch
+                %curve, it is initialized and the user is prompted for the
+                %amount of iterations.
+                %The value of iterations is entered into the variable N,
+                %which is rounded to the nearest integer.
                 if sId == 1
                     System = 'koch';
                     disp('You have chosen the Koch curve!')
                     N = inputdlg('Please enter amount of iterations: ','s');
                     N = str2double(N);
                     N = round(N);
+                    %We check to make sure the value of N is an integer
+                    %between 0 and 15. When we go above 15, matlab might
+                    %crash due to how quickly the system expands per
+                    %iteration.
                     while N < 0 || N >= 15 || isnan(N)    
                     N = inputdlg('Please choose an integer between 0 and 15: ','s');
                     N = str2double(N);
@@ -44,6 +54,8 @@ while true
                     end
                     LindenmayerString=LindIter(System,N);
                 elseif sId == 2
+                    %The same procedure is repeated for the sierpinski
+                    %system as the koch system.
                     System = 'sierpinski'
                     disp('You have chosen the Sierpinski triangle!');
                     N = inputdlg('Please enter amount of iterations: ','s');
@@ -59,13 +71,11 @@ while true
                     
                 end
                
-                if sId == -1
-                    disp('404 file not found');
-                    
-                end
                 turtleCommands = turtleGraph(LindenmayerString,N);
                 
             case 2
+                %We define a new variable, Kris, which is assigned the
+                %value of the chosen system.
                 if strcmp(System,'koch')
                     Kris = 'Koch curve';
                 elseif strcmp(System,'sierpinski')
@@ -73,6 +83,9 @@ while true
                 end
                 % Generate plots
                 turtlePlot(turtleCommands);
+                %The title of the plot depends on the value of Kris, that
+                %is the chosen system. The amount of iterations is stored
+                %in the value N, and converted to a string in the title.
                 title(['Plot of ', Kris, ' with iterations = ', num2str(N)]);
                 
             case 3
